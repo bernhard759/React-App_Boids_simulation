@@ -45,16 +45,18 @@ function Canvas(props:
 
     // Draw a boid
     const drawBoid = useCallback((boid: Boid, ctx: CanvasRenderingContext2D) => {
+        // Rounded position values for performant canvas drawing
+        const drawPos = [Math.round(boid.pos[0]), Math.round(boid.pos[1])];
         // Velocity rotation
         ctx.save();
-        ctx.translate(Math.round(boid.pos[0]), Math.round(boid.pos[1]));
+        ctx.translate(drawPos[0], drawPos[1]);
         ctx.rotate(Math.round(Math.atan2(boid.velocity[1], boid.velocity[0]) * 10) / 10);
-        ctx.translate(-Math.round(boid.pos[0]), -Math.round(boid.pos[1]));
+        ctx.translate(-drawPos[0], -drawPos[1]);
         // Draw boid triangle
         ctx.beginPath();
-        ctx.moveTo(Math.round(boid.pos[0]) - 5, Math.round(boid.pos[1]) - 5);
-        ctx.lineTo(Math.round(boid.pos[0]) + 6, Math.round(boid.pos[1]));
-        ctx.lineTo(Math.round(boid.pos[0]) - 5, Math.round(boid.pos[1]) + 5);
+        ctx.moveTo(drawPos[0] - 5, drawPos[1] - 5);
+        ctx.lineTo(drawPos[0] + 6, drawPos[1]);
+        ctx.lineTo(drawPos[0] - 5, drawPos[1] + 5);
         ctx.fillStyle = "gray";
         ctx.fill();
         ctx.restore()
