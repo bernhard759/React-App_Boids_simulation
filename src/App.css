@@ -1,0 +1,19 @@
+.boids__controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.boids__controls label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.boids__info {
+  margin-top: 1em;
+}
+
