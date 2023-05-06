@@ -24,7 +24,7 @@ function App() {
 
   // Handle number input
   const handleNumInput = useCallback((val: string) => {
-    if (val.length) {
+    if (val.length && (Number(val) >= 10 && Number(val) <= 150)) {
       boidNumRef.current.classList.remove("invalid");
       setBoidNum(Number(val));
     } else {
@@ -60,7 +60,7 @@ function App() {
           <div className="boids__controls__color">
             <label htmlFor="boid-color">Boid color</label>
             <input type="color" id="boid-color"
-              value={boidColor} onChange={(e) => setBoidColor(e.target.value) }></input>
+              value={boidColor} onChange={(e) => setBoidColor(e.target.value)}></input>
           </div>
 
         </div>
