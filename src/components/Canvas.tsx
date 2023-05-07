@@ -160,7 +160,6 @@ function Canvas(props:
 
     // Start draw
     useEffect(() => {
-        console.log("1");
         // Canvas and context
         const canvas: HTMLCanvasElement = canvasRef.current!;
         const ctx: CanvasRenderingContext2D = canvas.getContext('2d')!;
