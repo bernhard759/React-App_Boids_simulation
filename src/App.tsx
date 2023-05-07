@@ -1,4 +1,4 @@
-import { useState, useRef, MutableRefObject, useCallback } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import { Button, Input } from './StyledComponents';
 import Canvas from './components/Canvas';
 import './App.css'

@@ -20,7 +20,7 @@ function Canvas(props:
     // Boids
     const [boids, setBoids] = useState<Array<Boid>>([]);
 
-    // Param refs
+    // Param refs for updates of the looping draw
     const separationRef = useRef(props.separation);
     separationRef.current = props.separation;
     const alignmentRef = useRef(props.alignment);
@@ -91,7 +91,7 @@ function Canvas(props:
         })
         // Simulation loop
         animation.current = requestAnimationFrame(() => drawBoids(ctx));
-    }, [props.running, props.boidColor]);
+    }, [props.running]);
 
 
     // Make starting boids at random position
