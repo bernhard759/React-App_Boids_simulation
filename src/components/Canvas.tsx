@@ -137,12 +137,11 @@ function Canvas(props:
 
     // Drawing
     useEffect(() => {
-        // Do not repaint on mount
+        // Do not draw on mount
         if (starter.current) {
             starter.current = false;
             return;
         }
-
         // Canvas and context
         const canvas: HTMLCanvasElement = canvasRef.current!;
         const ctx: CanvasRenderingContext2D = canvas.getContext('2d')!;
