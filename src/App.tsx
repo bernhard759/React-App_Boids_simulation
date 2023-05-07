@@ -12,7 +12,7 @@ function App() {
 
   // Boid num
   const [boidNum, setBoidNum] = useState(50);
-  const boidNumRef = useRef() as MutableRefObject<HTMLInputElement>;
+  const boidNumRef = useRef<HTMLInputElement>(null);
 
   // Boid color
   const [boidColor, setBoidColor] = useState("#808080");
@@ -25,10 +25,10 @@ function App() {
   // Handle number input
   const handleNumInput = useCallback((val: string) => {
     if (val.length && (Number(val) >= 10 && Number(val) <= 150)) {
-      boidNumRef.current.classList.remove("invalid");
+      boidNumRef.current!.classList.remove("invalid");
       setBoidNum(Number(val));
     } else {
-      boidNumRef.current.classList.add("invalid");
+      boidNumRef.current!.classList.add("invalid");
     }
   }, []);
 

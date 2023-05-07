@@ -27,6 +27,8 @@ function Canvas(props:
     alignmentRef.current = props.alignment;
     const cohesionRef = useRef(props.cohesion);
     cohesionRef.current = props.cohesion;
+    const boidColorRef = useRef(props.boidColor);
+    boidColorRef.current = props.boidColor;
 
     // Animation frame ref
     const animation = useRef(0);
@@ -85,7 +87,7 @@ function Canvas(props:
         });
         // New draw of the  boids
         boids.forEach((boid) => {
-            drawBoid(boid, ctx, props.boidColor)
+            drawBoid(boid, ctx, boidColorRef.current)
         })
         // Simulation loop
         animation.current = requestAnimationFrame(() => drawBoids(ctx));
